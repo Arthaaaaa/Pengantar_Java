@@ -1,0 +1,511 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
+<?import java.lang.String?>
+<?import javafx.scene.chart.AreaChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="coffeeshop.DasshboardController">
+   <children>
+      <AnchorPane fx:id="Main_form" prefHeight="200.0" prefWidth="200.0">
+         <children>
+            <BorderPane layoutX="111.0" layoutY="160.0" prefHeight="600.0" prefWidth="1100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <top>
+                  <AnchorPane prefHeight="55.0" prefWidth="1100.0" stylesheets="@MenuDesign.css" BorderPane.alignment="CENTER">
+                     <children>
+                        <AnchorPane prefHeight="55.0" prefWidth="1100.0" styleClass="top-form" stylesheets="@MenuDesign.css" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                           <children>
+                              <ImageView fitHeight="47.0" fitWidth="47.0" layoutX="14.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../img/mug-hot-alt%20(3).png" />
+                                 </image>
+                              </ImageView>
+                              <Text fill="WHITE" layoutX="61.0" layoutY="35.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Arthur Coffee" textAlignment="CENTER" wrappingWidth="189.93818283081055">
+                                 <font>
+                                    <Font name="Bauhaus 93" size="25.0" />
+                                 </font>
+                              </Text>
+                              <Button fx:id="Close_button" layoutX="1037.0" layoutY="14.0" mnemonicParsing="false" onAction="#close" prefHeight="25.0" prefWidth="49.0" styleClass="close" stylesheets="@MenuDesign.css" text="X" textFill="WHITE" AnchorPane.rightAnchor="2.0" AnchorPane.topAnchor="2.0">
+                                 <font>
+                                    <Font name="Arial Black" size="12.0" />
+                                 </font>
+                              </Button>
+                              <Button fx:id="Minimize_button" layoutX="1006.0" layoutY="2.0" mnemonicParsing="false" onAction="#minimize" prefHeight="26.0" prefWidth="42.0" styleClass="minimize" stylesheets="@MenuDesign.css" textFill="WHITE" AnchorPane.rightAnchor="52.0" AnchorPane.topAnchor="2.0">
+                                 <font>
+                                    <Font name="Comic Sans MS" size="12.0" />
+                                 </font>
+                                 <graphic>
+                                    <FontAwesomeIcon fill="WHITE" glyphName="MINUS" />
+                                 </graphic>
+                              </Button>
+                              <Button fx:id="Maximize_button" layoutX="970.0" layoutY="3.0" mnemonicParsing="false" onAction="#toggleMaximizeRestore" styleClass="minimize" stylesheets="@MenuDesign.css" AnchorPane.rightAnchor="103.33333333333333">
+                                 <graphic>
+                                    <FontAwesomeIcon fill="#4f2c2c00" glyphName="SQUARE" stroke="WHITE" strokeWidth="2.0" />
+                                 </graphic>
+                              </Button>
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </AnchorPane>
+               </top>
+               <left>
+                  <AnchorPane prefHeight="545.0" prefWidth="235.0" BorderPane.alignment="CENTER">
+                     <children>
+                        <AnchorPane prefHeight="545.0" prefWidth="235.0" styleClass="left-form" stylesheets="@MenuDesign.css" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <FontAwesomeIcon fill="TRANSPARENT" glyphName="USER" layoutX="80.0" layoutY="123.0" size="8em" stroke="WHITE" strokeWidth="3.0" />
+                              <Text fill="WHITE" layoutX="68.0" layoutY="158.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome !">
+                                 <font>
+                                    <Font name="System Bold" size="20.0" />
+                                 </font>
+                              </Text>
+                              <Button fx:id="Dashboard_btn" layoutY="191.0" mnemonicParsing="false" onAction="#switchForm" prefHeight="41.0" prefWidth="235.0" styleClass="left-bttn" stylesheets="@MenuDesign.css" text="Dashboard" />
+                              <Button fx:id="Inventory_btn" layoutY="243.0" mnemonicParsing="false" onAction="#switchForm" prefHeight="41.0" prefWidth="235.0" styleClass="left-bttn" stylesheets="@MenuDesign.css" text="Inventory" />
+                              <Button fx:id="MenunCart_btn" layoutY="295.0" mnemonicParsing="false" onAction="#switchForm" prefHeight="41.0" prefWidth="235.0" styleClass="left-bttn" stylesheets="@MenuDesign.css" text="Menu n Cart">
+                                 <graphic>
+                                    <FontAwesomeIcon fill="WHITE" glyphName="SHOPPING_CART" />
+                                 </graphic>
+                              </Button>
+                              <Button fx:id="AboutUs_btn" layoutY="346.0" mnemonicParsing="false" onAction="#switchForm" prefHeight="41.0" prefWidth="235.0" styleClass="left-bttn" stylesheets="@MenuDesign.css" text="About Us" />
+                              <Button fx:id="SignOut_btn" layoutX="14.0" layoutY="489.0" mnemonicParsing="false" onAction="#SignOut" prefHeight="37.0" prefWidth="45.0" stylesheets="@MenuDesign.css">
+                                 <graphic>
+                                    <FontAwesomeIcon fill="WHITE" glyphName="SIGN_OUT" size="2EM" />
+                                 </graphic>
+                                 <styleClass>
+                                    <String fx:value="SignOut-bttn" />
+                                    <String fx:value="shadow" />
+                                 </styleClass>
+                              </Button>
+                              <Text fill="WHITE" layoutX="68.0" layoutY="513.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Sign Out">
+                                 <font>
+                                    <Font name="System Bold" size="15.0" />
+                                 </font>
+                              </Text>
+                           </children>
+                        </AnchorPane>
+                     </children></AnchorPane>
+               </left>
+               <center>
+                  <AnchorPane prefHeight="200.0" prefWidth="200.0" stylesheets="@MenuDesign.css" BorderPane.alignment="CENTER">
+                     <children>
+                        <AnchorPane fx:id="CART_FORM" layoutX="1.3333333333333333" layoutY="8.0" prefHeight="200.0" prefWidth="200.0" stylesheets="@MenuDesign.css" visible="false" AnchorPane.bottomAnchor="-1.0" AnchorPane.leftAnchor="1.0" AnchorPane.rightAnchor="2.0" AnchorPane.topAnchor="8.0">
+                           <children>
+                              <AnchorPane layoutX="7.0" layoutY="430.0" prefHeight="93.0" prefWidth="633.0" stylesheets="@MenuDesign.css" visible="false">
+                                 <styleClass>
+                                    <String fx:value="Menubckgrnd" />
+                                    <String fx:value="shadow" />
+                                 </styleClass>
+                                 <children>
+                                    <Button fx:id="MnC_addbtn" layoutX="471.0" layoutY="11.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="89.0" styleClass="addtocart-bttn" stylesheets="@MenuDesign.css" text="Add to Cart" />
+                                    <Button fx:id="MnC_deletebtn" layoutX="471.0" layoutY="51.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="89.0" styleClass="deletecart-bttn" stylesheets="@MenuDesign.css" text="Delete" />
+                                    <Button fx:id="MnC_clearbtn" layoutX="369.0" layoutY="51.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="89.0" styleClass="deletecart-bttn" stylesheets="@MenuDesign.css" text="Clear" />
+                                    <Button fx:id="MnC_updatebtn" layoutX="369.0" layoutY="12.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="89.0" styleClass="updatecart-bttn" stylesheets="@MenuDesign.css" text="Update" />
+                                    <TextField fx:id="MnC_search" layoutX="14.0" layoutY="10.0" prefHeight="25.0" prefWidth="499.0" promptText="Search" styleClass="search" stylesheets="@MenuDesign.css" />
+                                    <FontAwesomeIcon glyphName="SEARCH" layoutX="493.0" layoutY="27.0" />
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane layoutX="7.0" prefHeight="532.0" prefWidth="578.0" stylesheets="@MenuDesign.css" AnchorPane.bottomAnchor="6.0" AnchorPane.leftAnchor="7.0" AnchorPane.rightAnchor="276.33333333333326" AnchorPane.topAnchor="0.0">
+                                 <styleClass>
+                                    <String fx:value="Menubckgrnd" />
+                                    <String fx:value="shadow" />
+                                 </styleClass>
+                                 <children>
+                                    <ScrollPane fx:id="CART_scrollpane" layoutX="5.0" layoutY="3.0" prefHeight="525.0" prefWidth="570.0" AnchorPane.bottomAnchor="2.9999999999998863" AnchorPane.leftAnchor="5.3333333333332575" AnchorPane.rightAnchor="2.9999999999998863" AnchorPane.topAnchor="3.3333333333332575">
+                                       <content>
+                                          <GridPane fx:id="CART_gridpane" prefHeight="31.0" prefWidth="143.0">
+                                            <columnConstraints>
+                                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                            </columnConstraints>
+                                          </GridPane>
+                                       </content>
+                                    </ScrollPane>
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane layoutX="594.0" layoutY="1.0" prefHeight="528.0" prefWidth="258.0" stylesheets="@MenuDesign.css" AnchorPane.bottomAnchor="7.999999999999886" AnchorPane.rightAnchor="0.6666666666665719" AnchorPane.topAnchor="1.0">
+                                 <styleClass>
+                                    <String fx:value="Menubckgrnd" />
+                                    <String fx:value="shadow" />
+                                 </styleClass>
+                                 <children>
+                                    <TableView fx:id="CART_tableview" layoutX="1.0" prefHeight="268.0" prefWidth="265.0">
+                                      <columns>
+                                        <TableColumn id="mycolumn" fx:id="CART_MENU_COL" prefWidth="120.0" text="MENU" />
+                                          <TableColumn id="mycolumn" fx:id="CART_QTY_COL" prefWidth="55.333251953125" text="QTY" />
+                                          <TableColumn id="mycolumn" fx:id="CART_PRICE_COL" prefWidth="87.99995930989581" text="PRICE" />
+                                      </columns>
+                                    </TableView>
+                                    <Label layoutX="116.0" layoutY="294.0" text="Total :">
+                                       <font>
+                                          <Font name="System Bold" size="12.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="CART_TOTAL" layoutX="168.0" layoutY="294.0" text="0">
+                                       <font>
+                                          <Font name="System Bold" size="12.0" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="99.0" layoutY="323.0" text="Amount :">
+                                       <font>
+                                          <Font name="System Bold" size="12.0" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="100.0" layoutY="353.0" text="Change :">
+                                       <font>
+                                          <Font name="System Bold" size="12.0" />
+                                       </font>
+                                    </Label>
+                                    <Text fx:id="CART_AMOUNT" layoutX="169.0" layoutY="336.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" />
+                                    <Label fx:id="CART_CHANGE" layoutX="168.0" layoutY="353.0" text="0">
+                                       <font>
+                                          <Font name="System Bold" size="12.0" />
+                                       </font>
+                                    </Label>
+                                    <Button fx:id="CART_PAYBTN" layoutX="21.0" layoutY="400.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="226.0" styleClass="addtocart-bttn" stylesheets="@MenuDesign.css" text="Pay" />
+                                    <Button fx:id="CART_REMOVEBTN" layoutX="21.0" layoutY="446.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="101.0" styleClass="deletecart-bttn" stylesheets="@MenuDesign.css" text="Remove" />
+                                    <Button fx:id="CART_RECEIPTBTN" layoutX="145.0" layoutY="446.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="101.0" styleClass="addtocart-bttn" stylesheets="@MenuDesign.css" text="Receipt" />
+                                 </children>
+                              </AnchorPane>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane fx:id="DASHBOARD_FORM" layoutX="257.0" layoutY="177.0" prefHeight="545.3333333333334" prefWidth="864.6666666666666" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <AnchorPane layoutX="14.0" layoutY="14.0" prefHeight="149.0" prefWidth="837.0" stylesheets="@MenuDesign.css" AnchorPane.leftAnchor="13.999999999999886" AnchorPane.rightAnchor="13.333333333333258" AnchorPane.topAnchor="14.0">
+                                 <children>
+                                    <ScrollPane layoutX="130.0" layoutY="-51.0" prefHeight="149.33333333333334" prefWidth="837.3333333333334" styleClass="transparan" stylesheets="@MenuDesign.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                       <content>
+                                          <AnchorPane prefHeight="132.0" prefWidth="1012.0" styleClass="scroll-background" stylesheets="@MenuDesign.css">
+                                             <children>
+                                                <AnchorPane layoutX="19.0" layoutY="16.0" prefHeight="99.0" prefWidth="185.0" stylesheets="@MenuDesign.css">
+                                                   <styleClass>
+                                                      <String fx:value="scroll" />
+                                                      <String fx:value="shadow" />
+                                                   </styleClass>
+                                                   <children>
+                                                      <FontAwesomeIcon fill="#ffffff00" glyphName="USERS" layoutX="14.0" layoutY="31.0" size="2EM" stroke="WHITE" />
+                                                      <Label layoutX="51.0" layoutY="13.0" text="Number of Customer" textFill="WHITE">
+                                                         <font>
+                                                            <Font name="System Bold" size="12.0" />
+                                                         </font>
+                                                      </Label>
+                                                      <Label fx:id="DASHBOARD_numberofcust" layoutX="139.0" layoutY="39.0" prefHeight="13.0" prefWidth="12.0" text="0" textFill="WHITE">
+                                                         <font>
+                                                            <Font name="System Bold" size="31.0" />
+                                                         </font>
+                                                      </Label>
+                                                   </children>
+                                                </AnchorPane>
+                                                <AnchorPane layoutX="278.0" layoutY="16.0" prefHeight="99.0" prefWidth="185.0" stylesheets="@MenuDesign.css">
+                                                   <styleClass>
+                                                      <String fx:value="scroll" />
+                                                      <String fx:value="shadow" />
+                                                   </styleClass>
+                                                   <children>
+                                                      <FontAwesomeIcon fill="#ffffff00" glyphName="DOLLAR" layoutX="14.0" layoutY="33.0" size="2EM" stroke="WHITE" />
+                                                      <Label layoutX="82.0" layoutY="15.0" text="Today's Income" textFill="WHITE">
+                                                         <font>
+                                                            <Font name="System Bold" size="12.0" />
+                                                         </font>
+                                                      </Label>
+                                                      <Label fx:id="DASHBOARD_todayincome" layoutX="139.0" layoutY="41.0" prefHeight="13.0" prefWidth="12.0" text="0" textFill="WHITE">
+                                                         <font>
+                                                            <Font name="System Bold" size="31.0" />
+                                                         </font>
+                                                      </Label>
+                                                   </children>
+                                                </AnchorPane>
+                                                <AnchorPane layoutX="542.0" layoutY="16.0" prefHeight="99.0" prefWidth="185.0" stylesheets="@MenuDesign.css">
+                                                   <styleClass>
+                                                      <String fx:value="shadow" />
+                                                      <String fx:value="scroll" />
+                                                   </styleClass>
+                                                   <children>
+                                                      <FontAwesomeIcon fill="#ffffff00" glyphName="MONEY" layoutX="14.0" layoutY="33.0" size="2EM" stroke="WHITE" />
+                                                      <Label layoutX="93.0" layoutY="15.0" text="Total Income" textFill="WHITE">
+                                                         <font>
+                                                            <Font name="System Bold" size="12.0" />
+                                                         </font>
+                                                      </Label>
+                                                      <Label fx:id="DASHBOARD_totalincome" layoutX="139.0" layoutY="41.0" prefHeight="13.0" prefWidth="12.0" text="0" textFill="WHITE">
+                                                         <font>
+                                                            <Font name="System Bold" size="31.0" />
+                                                         </font>
+                                                      </Label>
+                                                   </children>
+                                                </AnchorPane>
+                                                <AnchorPane layoutX="803.0" layoutY="16.0" prefHeight="99.0" prefWidth="185.0" stylesheets="@MenuDesign.css">
+                                                   <styleClass>
+                                                      <String fx:value="shadow" />
+                                                      <String fx:value="scroll" />
+                                                   </styleClass>
+                                                   <children>
+                                                      <FontAwesomeIcon fill="#ffffff00" glyphName="SHOPPING_CART" layoutX="14.0" layoutY="33.0" size="2EM" stroke="WHITE" />
+                                                      <Label layoutX="44.0" layoutY="15.0" text="Number of sold product" textFill="WHITE">
+                                                         <font>
+                                                            <Font name="System Bold" size="12.0" />
+                                                         </font>
+                                                      </Label>
+                                                      <Label fx:id="DASHBOARD_numberofsold" layoutX="139.0" layoutY="41.0" prefHeight="13.0" prefWidth="12.0" text="0" textFill="WHITE">
+                                                         <font>
+                                                            <Font name="System Bold" size="31.0" />
+                                                         </font>
+                                                      </Label>
+                                                   </children>
+                                                </AnchorPane>
+                                             </children>
+                                          </AnchorPane>
+                                       </content>
+                                    </ScrollPane>
+                                 </children>
+                                 <styleClass>
+                                    <String fx:value="Menubckgrnd" />
+                                    <String fx:value="shadow" />
+                                 </styleClass>
+                              </AnchorPane>
+                              <AnchorPane layoutX="14.0" layoutY="173.0" prefHeight="356.0" prefWidth="839.0" stylesheets="@MenuDesign.css" AnchorPane.bottomAnchor="16.0" AnchorPane.leftAnchor="13.999999999999886" AnchorPane.rightAnchor="11.333333333333258" AnchorPane.topAnchor="173.0">
+                                 <styleClass>
+                                    <String fx:value="scroll-background" />
+                                    <String fx:value="shadow" />
+                                 </styleClass>
+                                 <children>
+                                    <AnchorPane layoutX="14.0" layoutY="14.0" prefHeight="327.0" prefWidth="400.0" stylesheets="@MenuDesign.css" AnchorPane.bottomAnchor="13.999999999999943" AnchorPane.leftAnchor="13.999999999999943" AnchorPane.rightAnchor="425.33333333333326" AnchorPane.topAnchor="13.999999999999943">
+                                       <styleClass>
+                                          <String fx:value="Menubckgrnd" />
+                                          <String fx:value="shadow" />
+                                       </styleClass>
+                                       <children>
+                                          <AreaChart fx:id="DASHBOARD_incomechart" layoutX="-50.0" layoutY="-36.0" prefHeight="364.0" prefWidth="449.99999999999994" title="Income's Chart" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                            <xAxis>
+                                              <CategoryAxis side="BOTTOM" />
+                                            </xAxis>
+                                            <yAxis>
+                                              <NumberAxis side="LEFT" />
+                                            </yAxis>
+                                          </AreaChart>
+                                       </children>
+                                    </AnchorPane>
+                                    <AnchorPane layoutX="425.0" layoutY="14.0" prefHeight="327.0" prefWidth="400.0" stylesheets="@MenuDesign.css" AnchorPane.bottomAnchor="14.0" AnchorPane.rightAnchor="14.333333333333258" AnchorPane.topAnchor="14.0">
+                                       <styleClass>
+                                          <String fx:value="Menubckgrnd" />
+                                          <String fx:value="shadow" />
+                                       </styleClass>
+                                       <children>
+                                          <AreaChart fx:id="DASHBOARD_custchart" layoutX="-236.0" layoutY="-73.0" prefHeight="327.33333333333326" prefWidth="400.0" title="Customer's Chart" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                            <xAxis>
+                                              <CategoryAxis side="BOTTOM" />
+                                            </xAxis>
+                                            <yAxis>
+                                              <NumberAxis side="LEFT" />
+                                            </yAxis>
+                                          </AreaChart>
+                                       </children>
+                                    </AnchorPane>
+                                 </children>
+                              </AnchorPane>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane fx:id="INVNTRY_FORM" layoutX="148.0" layoutY="90.0" prefHeight="544.6666666666666" prefWidth="864.6666666666666" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <AnchorPane layoutX="9.0" layoutY="9.0" prefHeight="260.0" prefWidth="847.0" stylesheets="@MenuDesign.css" AnchorPane.bottomAnchor="275.33333333333326" AnchorPane.leftAnchor="9.0" AnchorPane.rightAnchor="7.999999999999886" AnchorPane.topAnchor="9.0">
+                                 <styleClass>
+                                    <String fx:value="Menubckgrnd" />
+                                    <String fx:value="shadow" />
+                                 </styleClass>
+                                 <children>
+                                    <TableView fx:id="INVNTRY_tableview" layoutX="7.0" layoutY="4.0" onMouseClicked="#inventorySelectData" onSort="#inventoryShowData" prefHeight="251.0" prefWidth="833.0" AnchorPane.bottomAnchor="4.6666666666666" AnchorPane.leftAnchor="7.0" AnchorPane.rightAnchor="6.666666666666515" AnchorPane.topAnchor="3.999999999999943">
+                                      <columns>
+                                        <TableColumn fx:id="INVNTRY_CO_id" prefWidth="53.33332347869873" text="ID" />
+                                        <TableColumn fx:id="INVNTRY_CO_menu" prefWidth="140.0000457763672" text="Menu" />
+                                          <TableColumn fx:id="INVNTRY_CO_type" prefWidth="155.9999542236328" text="Type" />
+                                          <TableColumn fx:id="INVNTRY_CO_stock" prefWidth="69.33331298828125" text="Stock" />
+                                          <TableColumn fx:id="INVNTRY_CO_price" prefWidth="127.3333740234375" text="Price" />
+                                          <TableColumn fx:id="INVNTRY_CO_status" prefWidth="187.3333740234375" text="Status" />
+                                          <TableColumn fx:id="INVNTRY_CO_date" prefWidth="96.66668701171875" text="Date" />
+                                      </columns>
+                                      
+                                    </TableView>
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane layoutX="10.0" layoutY="278.0" prefHeight="260.0" prefWidth="847.0" stylesheets="@MenuDesign.css" AnchorPane.bottomAnchor="6.666666666666629" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="8.666666666666629">
+                                 <styleClass>
+                                    <String fx:value="Menubckgrnd" />
+                                    <String fx:value="shadow" />
+                                 </styleClass>
+                                 <children>
+                                    <TextField fx:id="INVNTRY_menuid" layoutX="84.0" layoutY="24.0" styleClass="search" stylesheets="@MenuDesign.css" />
+                                    <Text layoutX="50.0" layoutY="42.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ID  :">
+                                       <font>
+                                          <Font name="System Bold" size="12.0" />
+                                       </font>
+                                    </Text>
+                                    <TextField fx:id="INVNTRY_menu" layoutX="84.0" layoutY="69.0" styleClass="search" stylesheets="@MenuDesign.css" />
+                                    <Text layoutX="35.0" layoutY="87.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Menu :">
+                                       <font>
+                                          <Font name="System Bold" size="12.0" />
+                                       </font>
+                                    </Text>
+                                    <Text layoutX="40.0" layoutY="134.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Type :">
+                                       <font>
+                                          <Font name="System Bold" size="12.0" />
+                                       </font>
+                                    </Text>
+                                    <ComboBox fx:id="INVNTRY_type" layoutX="84.0" layoutY="116.0" prefHeight="28.0" prefWidth="159.0" promptText="Choose Type..." styleClass="search" stylesheets="@MenuDesign.css" />
+                                    <TextField fx:id="INVNTRY_stock" layoutX="357.0" layoutY="23.0" promptText="0" styleClass="search" stylesheets="@MenuDesign.css" />
+                                    <Text layoutX="307.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Stock  :">
+                                       <font>
+                                          <Font name="System Bold" size="12.0" />
+                                       </font>
+                                    </Text>
+                                    <TextField fx:id="INVNTRY_price" layoutX="357.0" layoutY="68.0" promptText="0" styleClass="search" stylesheets="@MenuDesign.css" />
+                                    <Text layoutX="310.0" layoutY="86.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Price  :">
+                                       <font>
+                                          <Font name="System Bold" size="12.0" />
+                                       </font>
+                                    </Text>
+                                    <AnchorPane layoutX="659.0" layoutY="23.0" prefHeight="163.0" prefWidth="139.0" stylesheets="@MenuDesign.css" AnchorPane.bottomAnchor="73.66666666666666" AnchorPane.rightAnchor="47.66666666666666">
+                                       <styleClass>
+                                          <String fx:value="search" />
+                                          <String fx:value="shadow" />
+                                       </styleClass>
+                                       <children>
+                                          <ImageView fx:id="INVNTRY_imageview" fitHeight="163.0" fitWidth="139.0" layoutX="3.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true" />
+                                       </children>
+                                    </AnchorPane>
+                                    <Button fx:id="INVNTRY_importbtn" layoutX="673.0" layoutY="207.0" mnemonicParsing="false" onAction="#inventoryimportbtn" prefHeight="27.0" prefWidth="112.0" styleClass="addtocart-bttn" stylesheets="@MenuDesign.css" text="Import" AnchorPane.bottomAnchor="25.666666666666657" AnchorPane.rightAnchor="61.0" />
+                                    <Text layoutX="305.0" layoutY="133.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Status  :">
+                                       <font>
+                                          <Font name="System Bold" size="12.0" />
+                                       </font>
+                                    </Text>
+                                    <ComboBox fx:id="INVNTRY_status" layoutX="358.0" layoutY="116.0" prefHeight="28.0" prefWidth="159.0" promptText="Choose Status..." styleClass="search" stylesheets="@MenuDesign.css" />
+                                    <Button fx:id="INVNTRY_addbtn" layoutX="431.0" layoutY="205.0" mnemonicParsing="false" onAction="#inventoryaddbtn" prefHeight="32.0" prefWidth="89.0" styleClass="addtocart-bttn" stylesheets="@MenuDesign.css" text="Add" />
+                                    <Button fx:id="INVNTRY_deletebtn" layoutX="314.0" layoutY="205.0" mnemonicParsing="false" onAction="#inventorydeletebtn" prefHeight="32.0" prefWidth="89.0" styleClass="deletecart-bttn" stylesheets="@MenuDesign.css" text="Delete" />
+                                    <Button fx:id="INVNTRY_clearbtn" layoutX="201.0" layoutY="205.0" mnemonicParsing="false" onAction="#inventoryclearbtn" prefHeight="32.0" prefWidth="89.0" styleClass="deletecart-bttn" stylesheets="@MenuDesign.css" text="Clear" />
+                                    <Button fx:id="INVNTRY_updatebtn" layoutX="84.0" layoutY="205.0" mnemonicParsing="false" onAction="#inventoryupdatebtn" prefHeight="32.0" prefWidth="89.0" styleClass="updatecart-bttn" stylesheets="@MenuDesign.css" text="Update" />
+                                 </children>
+                              </AnchorPane>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane fx:id="ABOUTUS_FORM" layoutX="206.0" layoutY="145.0" prefHeight="544.6666666666666" prefWidth="864.6666666666666" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <ScrollPane prefHeight="545.0" prefWidth="865.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <content>
+                                    <AnchorPane prefHeight="605.0" prefWidth="861.0" stylesheets="@MenuDesign.css">
+                                       <children>
+                                          <AnchorPane layoutY="328.0" prefHeight="200.0" prefWidth="1025.0" stylesheets="@MenuDesign.css" AnchorPane.rightAnchor="58.0">
+                                             <styleClass>
+                                                <String fx:value="scroll-background" />
+                                                <String fx:value="shadow" />
+                                             </styleClass>
+                                             <children>
+                                                <AnchorPane layoutX="425.0" layoutY="-49.0" prefHeight="99.0" prefWidth="200.0" stylesheets="@MenuDesign.css" AnchorPane.leftAnchor="425.33333333333326" AnchorPane.rightAnchor="400.33333333333326">
+                                                   <styleClass>
+                                                      <String fx:value="shadow" />
+                                                      <String fx:value="scroll-background" />
+                                                   </styleClass>
+                                                   <children>
+                                                      <ImageView fitHeight="136.0" fitWidth="177.0" layoutX="31.0" layoutY="-10.0" pickOnBounds="true" preserveRatio="true">
+                                                         <image>
+                                                            <Image url="@../img/I_will_do_creative_design_for_a_paper_cup_auto_x2-removebg-preview.png" />
+                                                         </image>
+                                                      </ImageView>
+                                                   </children>
+                                                </AnchorPane>
+                                                <Text fill="WHITE" layoutX="33.0" layoutY="36.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Selamat datang di Arthur Coffee, &#10;tempat di mana aroma kopi segar&#10;bertemu dengan suasana yang hangat &#10;dan bersahaja. &#10;Kami, di Arthur Coffee, berkomitmen&#10;untuk memberikan pengalaman kopi&#10; yang luar biasa, menyajikan sajian kopi&#10;berkualitas tinggi yang dipersembahkan&#10;dengan cinta dan keahlian. ">
+                                                   <font>
+                                                      <Font name="Arial Bold" size="15.0" />
+                                                   </font>
+                                                </Text>
+                                                <Text fill="WHITE" layoutX="671.0" layoutY="36.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nikmati setiap tegukan kopi kami &#10;yang lezat, sambil menikmati ruang &#10;yang nyaman untuk berbagi cerita dan &#10;menciptakan kenangan tak terlupakan.&#10;Selamat menikmati momen istimewa Anda di &#10;Arthur Coffee,&#10;di mana kopi menjadi lebih &#10;dari sekadar minuman, tetapi sebuah &#10;pengalaman seni dan kebersamaan." textAlignment="RIGHT">
+                                                   <font>
+                                                      <Font name="Arial Bold" size="15.0" />
+                                                   </font>
+                                                </Text>
+                                                <Text fill="WHITE" layoutX="474.0" layoutY="108.0" strokeType="OUTSIDE" strokeWidth="0.0" text="About Us" textAlignment="CENTER">
+                                                   <font>
+                                                      <Font name="Bauhaus 93" size="27.0" />
+                                                   </font>
+                                                </Text>
+                                             </children>
+                                          </AnchorPane>
+                                          <AnchorPane layoutX="-2.0" layoutY="-1.0" prefHeight="261.0" prefWidth="1299.0" stylesheets="@MenuDesign.css" AnchorPane.bottomAnchor="488.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-216.0" AnchorPane.topAnchor="-1.0">
+                                             <styleClass>
+                                                <String fx:value="shadow" />
+                                                <String fx:value="scroll-background" />
+                                             </styleClass>
+                                             <children>
+                                                <Text fill="WHITE" layoutX="737.0" layoutY="32.0" strokeType="OUTSIDE" strokeWidth="0.0" text="C&#10;O&#10;F&#10;F&#10;E&#10;E">
+                                                   <font>
+                                                      <Font name="Bauhaus 93" size="29.0" />
+                                                   </font>
+                                                </Text>
+                                                <Text fill="WHITE" layoutX="274.0" layoutY="28.0" strokeType="OUTSIDE" strokeWidth="0.0" text="A&#10;R&#10;T&#10;H&#10;U&#10;R">
+                                                   <font>
+                                                      <Font name="Bauhaus 93" size="29.0" />
+                                                   </font>
+                                                </Text>
+                                                <ImageView fitHeight="258.0" fitWidth="326.0" layoutX="360.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="360.0" AnchorPane.rightAnchor="410.8333333333335">
+                                                   <image>
+                                                      <Image url="@../img/Rahmat%202.jpg" />
+                                                   </image>
+                                                </ImageView>
+                                                <ImageView fitHeight="258.0" fitWidth="223.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@../img/Dua%20-%20Barista%202.jpg" />
+                                                   </image>
+                                                </ImageView>
+                                                <ImageView fitHeight="259.0" fitWidth="214.0" layoutX="803.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@../img/aa1ec3bd-2619-4a47-8281-f68c53c91650.jpg" />
+                                                   </image>
+                                                </ImageView>
+                                             </children>
+                                          </AnchorPane>
+                                          <AnchorPane layoutY="554.0" prefHeight="200.0" prefWidth="1025.0" stylesheets="@MenuDesign.css">
+                                             <styleClass>
+                                                <String fx:value="scroll-background" />
+                                                <String fx:value="shadow" />
+                                             </styleClass>
+                                             <children>
+                                                <Text fill="WHITE" layoutX="199.0" layoutY="53.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cita rasa kopi kami bukan sekadar minuman, melainkan kisah perpaduan &#10;sempurna antara biji kopi pilihan dan seni pengolahan yang mendalam. &#10;Setiap tegukan kopi di sini adalah perjalanan sensorik yang memikat, &#10;dengan setiap aroma dan nuansa rasa yang dipeluk oleh tangan-tangan &#10;terampil kami. Dari biji kopi yang dipilih dengan cermat hingga proses pembuatan &#10;yang hati-hati, kami menciptakan secangkir kopi yang memukau. Pengalaman nikmati &#10;kekayaan cita rasa kopi yang mendalam, dari keleganan hingga kehangatan, hanya di Arthur Coffee. &#10;Kami hadir untuk menyajikan pengalaman kopi yang tak terlupakan, menghadirkan kepuasan tiada tara &#10;bagi para pencinta kopi sejati." textAlignment="CENTER">
+                                                   <font>
+                                                      <Font name="Arial Bold" size="13.0" />
+                                                   </font>
+                                                </Text>
+                                                <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="430.0" layoutY="-76.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@../img/The_health_pros_and_cons_of_drinking_coffee_-_Fad_Free_Nutrition_Blog-removebg-preview.png" />
+                                                   </image>
+                                                </ImageView>
+                                             </children>
+                                          </AnchorPane>
+                                       </children>
+                                    </AnchorPane>
+                                 </content>
+                              </ScrollPane>
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </AnchorPane>
+               </center>
+            </BorderPane>
+         </children>
+      </AnchorPane>
+   </children>
+</StackPane>
